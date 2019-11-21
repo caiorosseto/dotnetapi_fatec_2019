@@ -12,8 +12,10 @@ namespace Store.BusinessLogic.BL
 {
     public class ClienteBL : IClienteBL
     {
+        private ClienteDao _clienteDao;
         public ClienteBL()
         {
+            _clienteDao = new ClienteDao();
         }
 
         public Cliente Atualizar(Cliente cliente)
@@ -28,7 +30,7 @@ namespace Store.BusinessLogic.BL
 
         public Cliente Inserir(Cliente cliente)
         {
-            throw new NotImplementedException();
+            return _clienteDao.Insert(cliente);
         }
 
         public List<Cliente> Listar()
@@ -43,6 +45,7 @@ namespace Store.BusinessLogic.BL
 
         public void Dispose()
         {
+            _clienteDao.Dispose();
         }
     }
 }

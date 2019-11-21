@@ -14,7 +14,8 @@ namespace Store.Api.Controllers
         public AutenticacaoController(IClienteBL BLInjectable) : base(BLInjectable) { }
 
         [HttpPost]
-        public Cliente Logar([FromBody] Cliente cliente) =>
-            base.BLInjected.Logar(cliente);
+        public Cliente Logar([FromBody] Cliente cliente) { 
+            return base.BLInjected.Logar(cliente);
+        }
     }
 }
