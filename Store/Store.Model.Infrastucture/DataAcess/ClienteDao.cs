@@ -93,8 +93,10 @@ namespace Store.Model.Infrastucture.DataAcess
         {
             this.SqlBase();
             this.Sql.Append(" WHERE TB_CLIENTE.ID = @ID ");
+            this.AddParameter("@ID", id);
 
             using (var DataReader = this.ExecuteReader())
+
             {
                 return this.CastToObject(DataReader).FirstOrDefault();
             }
